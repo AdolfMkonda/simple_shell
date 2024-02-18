@@ -16,7 +16,6 @@ int main(void)
 		write(STDOUT_FILENO, "ado##: ", 8);
 		commands(&command, &cmdlen, stdin);
 		execute_cmd(command);
-		write(STDOUT_FILENO, "ado##: ", 8);
 	}
 
 	return (0);

@@ -28,7 +28,6 @@ void execute_cmd(char *command)
 		if (execvp(args[0], args) == -1)
 		{
 			perror("");
-			exit(EXIT_FAILURE);
 		}
 
 		else if (pid < 0)

@@ -13,7 +13,7 @@ void execute_cmd(char *command)
 	int i = 0;
 	pid_t pid;
 
-	token = strtok(command, " ");
+	token = strtok(command, "\n");
 
 	while (token != NULL)
 	{

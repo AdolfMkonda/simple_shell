@@ -25,18 +25,9 @@ void execute_cmd(char *command)
 	pid = fork();
 	if (pid == 0)
 	{
-		if (execvp(args[0], args) == -1)
-		{
-			perror("");
-		}
-
-		else if (pid < 0)
-		{
-			perror("");
-		}
-		else
-		{
-			wait(NULL);
-		}
+		execvp(args[0], args);
+		perror("");
 	}
+	else
+		wait(NULL);
 }

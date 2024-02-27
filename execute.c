@@ -10,6 +10,8 @@ void execute_cmd(char *command)
 {
 	char *args[max_cmd_length];
 	char *token;
+	char *path = getenv("PATH");
+	char *buffer = strdup(path);
 	int i = 0;
 	pid_t pid;
 
@@ -26,6 +28,17 @@ void execute_cmd(char *command)
 	if (pid == 0)
 	{
 		execvp(args[0], args);
+
+		token = strtok(buffer, ":");
+
+		while (token != NULL)
+		{
+			char fullPath[1024];
+
+			snprintf(fullPath, sizeof(fullPath), "%s%s", token, args[0]);
+			execv(fullPath, args);
+			token = strtok(NULL, ":");
+		}
 		perror("");
 	}
 	else

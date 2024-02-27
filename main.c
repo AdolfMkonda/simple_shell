@@ -15,6 +15,7 @@ int main(void)
 	{
 		write(STDOUT_FILENO, "ado##: ", 8);
 		commands(&command, &cmdlen, stdin);
+		command[strcspn(command, "\n")] = 0;
 		execute_cmd(command);
 	}
 

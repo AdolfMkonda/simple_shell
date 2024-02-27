@@ -13,12 +13,12 @@ void execute_cmd(char *command)
 	int i = 0;
 	pid_t pid;
 
-	token = strtok(command, "\n");
+	token = strtok(command, " \n");
 
-	while (token != NULL)
+	while (token != NULL && i < 20)
 	{
 		args[i++] = token;
-		token = strtok(NULL, " ");
+		token = strtok(NULL, " \n");
 	}
 	args[i] = NULL;
 

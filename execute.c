@@ -24,6 +24,9 @@ void execute_cmd(char *command)
 	}
 	args[i] = NULL;
 
+	if (strcmp(args[0], "exit") == 0)
+		exit(EXIT_SUCCESS);
+
 	pid = fork();
 	if (pid == 0)
 	{
@@ -40,6 +43,7 @@ void execute_cmd(char *command)
 			token = strtok(NULL, ":");
 		}
 		perror("");
+		exit(EXIT_FAILURE);
 	}
 	else
 		wait(NULL);

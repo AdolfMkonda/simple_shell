@@ -2,7 +2,6 @@
 /**
  * execute_cmd - program that extute entered command
  * @command: to be executed
- * .....
  */
 void execute_cmd(char *command)
 {

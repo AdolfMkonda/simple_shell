@@ -19,6 +19,6 @@
 void commands(char **command, size_t *cmdlen, FILE *stream);
 void execute_cmd( char *command);
 char *_strcat(char *dest, char *src);
-
+char *_strtok(char *str, const char *delim);
 
 #endif

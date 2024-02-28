@@ -20,7 +20,7 @@ void execute_cmd(char *command)
 	while (token != NULL && i < 20)
 	{
 		args[i++] = token;
-		token = strtok(NULL, " \n");
+		token = _strtok(NULL, " \n");
 	}
 	args[i] = NULL;
 
@@ -32,7 +32,7 @@ void execute_cmd(char *command)
 	{
 		execvp(args[0], args);
 
-		token = strtok(buffer, ":");
+		token = _strtok(buffer, ":");
 
 		while (token != NULL)
 		{

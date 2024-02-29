@@ -7,8 +7,7 @@ void execute_cmd(char *command)
 {
 	char *token, *args[max_cmd_length];
 	char fullPath[1024];
-	char *path = getenv("PATH");
-	char *buffer = strdup(path);
+	char *path = getenv("PATH"), *buffer = strdup(path);
 	int i = 0;
 	pid_t pid;
 
@@ -17,8 +16,7 @@ void execute_cmd(char *command)
 	{
 		args[i++] = token;
 		token = _strtok(NULL, " \n");
-	}
-	args[i] = NULL;
+	} args[i] = NULL;
 	if (strcmp(args[0], "exit") == 0)
 		exit(EXIT_SUCCESS);
 	pid = fork();

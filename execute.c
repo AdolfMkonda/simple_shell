@@ -30,7 +30,7 @@ void execute_cmd(char *command)
 			execv(fullPath, args);
 			token = strtok(NULL, ":");
 		}
-		perror("");
+		perror("error");
 		exit(EXIT_FAILURE);
 	}
 	else

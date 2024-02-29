@@ -12,8 +12,9 @@ int main(void)
 	{
 		write(STDOUT_FILENO, "ado##: ", 8);
 		commands(&command, &cmdlen, stdin);
+		if (command == NULL || *command == '\0')
+			write(STDOUT_FILENO, "ado##: ", 8);
 		execute_cmd(command);
 	}
-
 	return (0);
 }

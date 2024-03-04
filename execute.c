@@ -11,6 +11,8 @@ void execute_cmd(char *command)
 	int i = 0;
 	pid_t pid;
 
+	if (command == NULL || *command == '\0')
+		return;
 	token = strtok(command, " \n");
 	while (token != NULL && i < 20)
 	{

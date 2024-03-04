@@ -13,7 +13,7 @@ void execute_cmd(char *command)
 
 	if (command == NULL || *command == '\0')
 		return;
-	token = strtok(command, " \n");
+	token = _strtok(command, " \n");
 	while (token != NULL && i < 20)
 	{
 		args[i++] = token;
@@ -30,7 +30,7 @@ void execute_cmd(char *command)
 		{
 			snprintf(fullPath, sizeof(fullPath), "%s%s", token, args[0]);
 			execv(fullPath, args);
-			token = strtok(NULL, ":");
+			token = _strtok(NULL, ":");
 		}
 		perror("error");
 		exit(EXIT_FAILURE);
